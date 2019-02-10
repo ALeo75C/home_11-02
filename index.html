@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body {
+        margin: 0;
+        background-color: yellow;
+      }
+      div.backGround {
+        background-color: red;
+        margin-top: 10vh;
+        margin-left: 10vw;
+        width: 80vw;
+        height: 80vh;
+        overflow: hidden;
+      }
+      .change {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        background-color: yellow;
+        /* background-image: url("image/green.png"); */
+        filter: blur(10px);
+        /* overflow: hidden; */
+      }
+      /* .change img {
+        filter: invert(180deg);
+        position: absolute;
+        top: 10vh;
+        left: 10vw;
+      } */
+    </style>
+    <script src="jquery.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <script>
+    let x = 0
+    let y = 0
+
+    // let width = $(window).width()
+    // let height = $(window).height()
+
+
+    // function changeLeft() {
+    //   let left = x - (width * 0.1)
+    //   return left
+    // }
+    // function changeTop() {
+    //   let top = y - (height * 0.1)
+    //   return top
+    // }
+
+    function changeDivsPosition() {
+      $('.change').css({
+        'display': 'block',
+        'top': (y - 35) + 'px',
+        'left': (x - 35) + 'px'
+      })
+    }
+    // function changeImagePosition() {
+    //   $('#image').css({
+    //     'top': '-' changeTop() + 'px',
+    //     'left': '-' changeLeft() + 'px'
+    //   })
+    // }
+
+    $(document).mousemove(function(e) {
+      x = e.pageX
+      y = e.pageY
+      changeDivsPosition()
+      // changeImagePosition()
+    })
+
+    // $(document).mousemove(function(e) {
+    //   let x = e.pageX
+    //   let y = e.pageY
+    //   console.log(x)
+    //   console.log(y)
+    // )}
+
+    </script>
+    <div class="backGround">
+      <!-- <img src="image/green.png" alt=""> -->
+    </div>
+    <div class="change">
+      <!-- <img id="image" src="image/one.jpg" alt=""> -->
+    </div>
+    <!-- <p id="x">1</p>
+    <p id="y">2</p> -->
+  </body>
+</html>
